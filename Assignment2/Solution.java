@@ -1,4 +1,5 @@
 //TASK-01
+// Final version commit
 public class Task01 {
     public static void main (String [] args){
         
@@ -14,8 +15,8 @@ public class Task01 {
         int MOBILE = 10; 
         System.out.println(MOBILE);//VALID
         
-        int  “Ans” = 10; 
-        System.out.println( “Ans”);//invalid
+        int  ï¿½Ansï¿½ = 10; 
+        System.out.println( ï¿½Ansï¿½);//invalid
         
         int $30 = 10; 
         System.out.println($30);//VALID
@@ -29,8 +30,8 @@ public class Task01 {
         int A+3 = 10; 
         System.out.println(A+3);//invalid
         
-        int ‘X’ = 10; 
-        System.out.println( ‘X’);//invalid
+        int ï¿½Xï¿½ = 10; 
+        System.out.println( ï¿½Xï¿½);//invalid
         
         int return = 10; 
         System.out.println(return);//invalid
@@ -62,7 +63,7 @@ public class Task02 {
         double product2 = dub1 * dub2;
         double division2 = (double) dub1 / dub2;
         System.out.println("Product of dub1 and dub2 is = " + product2);
-        System.out.println("Division of ndub1 and dub2 is = " + division2);
+        System.out.println("Division of dub1 and dub2 is = " + division2);
         //TASK 2.5
         int num3 = 21;
         double num4 = 22.2;
