@@ -1,384 +1,462 @@
 import java.util.Scanner;
-public class Assignment07Task01 {
-    public static void main (String [] args) {
-        Scanner sc = new Scanner (System.in);
-        
-        //(a)
-        
-        System.out.println("N = ");
-        int N = sc.nextInt();
-        int [] array = new int[N];
-        
-        for (int a = 0; a < array.length; a++)
+// Final version commit
+public class Final01 {
+    
+    //(A)
+    public static void evenChecker(int a)
+    {
+        if (a % 2 == 0)
         {
-            System.out.println("Enter a number: ");
-            array [a] = sc.nextInt();
+            System.out.println("Even!!");
         }
-        System.out.println("The elements of the array are: ");
-        
-        for (int a = 0; a < array.length; a++)
+        else 
         {
-            System.out.println(a + ": " + array[a]);
-        }
-        
-        //(b)
-        
-        int [] array1 = new int [N+1];
-        System.out.println("Enter another number: ");
-        int num = sc.nextInt();
-        int last = array1.length - 1;
-        array1[last] = num;
-        
-        for(int a = 0; a < array.length; a++)
-        {
-            array1[a] = array[a];
-        }
-        System.out.println("After resizing the array: ");
-        
-        for (int a = 0; a < array1.length; a++)
-        {
-            System.out.print(array1[a] + " ");
+            System.out.println("Odd!!");
         }
     }
-}
-
-
-import java.util.Scanner;
-public class Assignment07Task02 {
-    public static void main (String [] args) {
-        Scanner sc = new Scanner (System.in);
-        
-        System.out.println("Enter array length: ");
-        int num = sc.nextInt();
-        int [] arr = new int [num];
-        
-        for(int a = 0; a < arr.length; a++){
-            System.out.print("Enter a number: ");
-            arr[a] = sc.nextInt();
-        }
-        System.out.println("Before removing duplicates: ");
-        
-        for (int a = 0; a < arr.length; a++)
+    
+    //(B)
+    public static boolean isEven(int a)
+    {
+        if (a % 2 == 0)
         {
-        System.out.print(arr[a] + " ");
+        return true;
         }
-        
-        for (int a = 0; a < arr.length; a++) 
+        else 
         {
-            for (int b = a + 1; b < arr.length; b++)
+        return false;
+        }
+    }
+    
+    //(C)
+    public static boolean isPos(int a)
+    {
+        if (a >= 0)
+        {
+        return true;
+        }
+        else 
+        {
+        return false;
+        }
+    }
+    
+    //(D)
+    public static void sequence(int a)
+    {
+        if (isPos(a))
+        {
+            if (isEven(a))
             {
-                if (arr[a] == arr[b] && arr[a] != 0) 
-                {
-                    arr[b] = 0;
-                }
-            }
-        }
-        System.out.println();
-        System.out.println("After replacing duplicates with 0: ");
-        
-        for(int a = 0; a < arr.length; a++)
-        {
-        System.out.print(arr[a] + " ");
-        }
-    }
-}
-
-
-import java.util.Scanner;
-public class Assignment07Task03 {
-    public static void main (String [] args) {
-        Scanner sc = new Scanner (System.in);
-        
-        System.out.println("Enter array length: ");
-        int num = sc.nextInt();
-        int [] arr = new int [num];
-        int [] arr1 = new int [num];
-        
-        for(int a = 0; a < arr.length; a++){
-            System.out.print("Enter a number: ");
-            arr[a] = sc.nextInt();
-        }
-        
-        //a
-        
-        System.out.println("Reversed using a new array: ");
-        
-        for (int a = 0; a < arr.length; a++)
-        {
-            arr1[a] = arr [arr.length - 1 - a];
-            System.out.print(arr1[a] + " ");
-        }
-        
-        //b
-        
-        System.out.println();
-        System.out.println("Reversed the original array: ");
-        int a = 0;
-        int b = arr.length - 1;
-        
-        while (a < b) {
-            
-            int temp = arr[a];
-            arr[a] = arr[b];
-            arr[b] = temp;
-            a++;
-            b--;
-        }
-        
-        for(int c = 0; c < arr.length; c++)
-        {
-            System.out.print(arr[c] + " " );
-        }
-        System.out.println();
-    }
-}
-
-
-import java.util.Scanner;
-public class Assignment07Task04 {
-    public static void main (String [] args) {
-        Scanner sc = new Scanner (System.in);
-        System.out.println("Enter array length: ");
-        int num = sc.nextInt();
-        int [] arr = new int [num];
-        
-        for(int a = 0; a < arr.length; a++)
-        {
-            System.out.print("Enter a number: ");
-            arr[a] = sc.nextInt();
-        }
-        System.out.println("Original array: ");
-        
-        for(int a = 0; a < arr.length; a++)
-        {
-            System.out.print(arr[a] + " ");
-        }
-        System.out.println();
-        System.out.println("After modifying: ");
-        
-        for (int a = 0; a < arr.length; a++)
-        {
-            if(arr[a] > 0)
-            {
-                arr[a] = 1;
+                for (int i = 0; i <= a; i = i + 2)
+                    System.out.print(i + " ,");
             }
             else 
             {
-                arr[a] = 0;
+                for (int i = 0; i < a; i = i + 2)
+                System.out.print(i + " ,");
             }
-            System.out.print(arr[a] + " ");
-        }
-    }
-}
-
-
-import java.util.Scanner;
-public class Assignment07Task05 {
-    public static void main (String [] args) {
-        Scanner sc = new Scanner (System.in);
-        System.out.println("N = ");
-        int N = sc.nextInt();
-        int [] arr = new int [N];
-        
-        for(int a = 0; a < arr.length; a++)
-        {
-            System.out.print("Enter a number: ");
-            arr[a] = sc.nextInt();
-        }
-        System.out.println("Enter a number: ");
-        int num = sc.nextInt();
-        
-        int index = -1;     
-        for (int a = 0; a < arr.length; a++) {
-            if (arr[a] == num) {
-                index = a; 
-                break; 
-            }
-        }
-
-        
-        if (index != -1) 
-        { 
-            System.out.println(arr[index] + " is at index " + index);
-        } 
-        else 
-        {
-            System.out.println("Element not found");
-        }
-        
-    }
-}
-
-
-
-import java.util.Scanner;
-public class Assignment07Task06 {
-    public static void main (String [] args) {
-        Scanner sc = new Scanner (System.in);
-        System.out.println("Enter the length of the array: ");
-        int N = sc.nextInt();
-        double [] arr = new double [N];
-                
-        for(int a = 0; a < arr.length; a++)
-        {
-            System.out.print("Enter a number: ");
-            arr[a] = sc.nextDouble();
-        }
-        
-        //(a)
-        
-        double maximum = arr[0];
-        int index = 0;
-        for (int a = 0; a < arr.length; a++)
-        {
-            if(arr[a] > maximum)
-            {
-        maximum = arr[a];
-        index = a;
-            }
-            }
-        System.out.println("Maximum element " + maximum + " found at index " + index);
-        
-        //(b)
-        
-        double minimum = arr[0];
-        int index1 = 0;
-        for (int a = 0; a < arr.length; a++)
-        {
-            if(arr[a] < minimum)
-            {
-        minimum = arr[a];
-        index1 = a;
-            }
-            }
-        System.out.println("Minimum element " + minimum + " found at index " + index1);
-        
-        //(c)
-        
-        double sum = 0;
-        int index2 = 0;
-        for (int a = 0; a < arr.length; a++)
-        { 
-        sum = sum + arr[a];
-        index2 = a;
-            }
-           
-        System.out.println("Summation: " + sum);
-        
-        //(d)
-        
-        double avg = sum/arr.length;
-        System.out.printf("Average: %.2f%n", avg);
-        
-    }
-}
-
-
-import java.util.Scanner;
-public class Assignment07Task07 {
-    public static void main (String [] args) {
-        Scanner sc = new Scanner (System.in);
-        System.out.println("N = ");
-        int N = sc.nextInt();
-        int [] arr = new int [N];
-        
-        for(int a = 0; a < arr.length; a++) 
-        {
-            System.out.print("Enter a number: ");
-            arr[a] = sc.nextInt();
-        }
-        System.out.println("Input array: ");
-        
-        for(int a = 0; a < arr.length; a++)
-        {
-            System.out.print(arr[a] + " ");
-        }
-        int count = 0;
-        
-        for(int a = 0; a < arr.length; a++)
-        {
-            for(int b = a + 1; b < arr.length; b++)
-            {
-                if(arr[a] == arr[b])
-                {
-                    arr[b] = 0;
-                }
-            }
-        }
-        
-        for(int a = 0; a < arr.length; a++)
-        {
-            if(arr[a] != 0)
-            {
-                count = count + 1;
-            }
-        }
-        System.out.println();
-        System.out.println("New array: ");
-        
-        int [] arr2 = new int[count];
-        int l = 0;
-        
-        for(int a = 0; a < arr.length; a++)
-        {
-            if(arr[a] != 0)
-            {
-                arr2[l] = arr[a];
-                l++;
-            }
-        }
-        
-        for(int c = 0; c < count; c++)
-        {
-            System.out.print(arr2[c] + " ");
-        }
-        System.out.println();
-    }
-}
-
-
-import java.util.Scanner;
-public class Assignment07Task08 {
-    public static void main (String [] args) {
-        Scanner sc = new Scanner (System.in);
-        System.out.println("Please enter the length of array 1: ");
-        int num1 = sc.nextInt();
-        int [] arr1 = new int [num1];
-        
-        for(int a = 0; a < arr1.length; a++)
-        {
-            System.out.print("Please enter the elements of the arr1 ");
-            arr1[a] = sc.nextInt();
-        }
-        System.out.println("Please enter the length of array 2: ");
-        int num2 = sc.nextInt();
-        int [] arr2 = new int [num2];
-        
-        for(int a = 0; a < arr2.length; a++)
-        {
-            System.out.print("Please enter the elements of the arr2 ");
-            arr2[a] = sc.nextInt();
-        }
-        int count = 0;
-        
-        for(int a=0; a < arr2.length; a++)
-        {
-            for(int b = 0; b < arr1.length; b++)
-            {
-                if(arr2[a] == arr1[b])
-                {
-                    count=count+1;
-                }
-            }
-        }
-        if(count == num2)
-        {
-            System.out.print("Array 2 is a subset of Array 1.");
         }
         else
         {
-            System.out.print("Array 2 is not a subset of Array 1.");
+            if (isEven(a))
+            {
+                a ++;
+                for (int i = a; i < 0; i = i + 2)
+                {
+                System.out.print(i + ",");
+                }
+            }
+            else 
+            {
+            for (int i = a; i < 0; i = i + 2)
+                {
+                System.out.print(i + ",");
+                }
+            }
         }
-        System.out.println();
+        System.out.println(); 
+    }
+    
+    public static void main (String [] args){
+    evenChecker(10);
+    
+    boolean result = isEven(11);
+    System.out.println(result);
+    
+    boolean result1 = isPos(10);
+    System.out.println(result1);
+    
+    sequence(10);
+    }
+}
+
+import java.util.Scanner;
+public class Final02 {
+    
+    //A
+    public static double circleArea(int a)
+    {
+    return Math.PI * Math.pow(a, 2);
+    }
+    
+    //B
+    public static double sphereVolume(int a)
+    {
+    return (4.0/3.0) * Math.PI * Math.pow(a, 3);
+    }
+    
+    //C
+    public static void findSpace(int a, String b)
+    {
+    if(b.equals("circle"))
+    {
+    System.out.println(circleArea(a / 2));
+    }
+    else if(b.equals("sphere"))
+    {
+    System.out.println(sphereVolume(a / 2));
+    }
+    else
+        System.out.println("Wrong Parameter");
+    }
+    
+    public static void main (String [] args){
+    
+    double area = circleArea(5);
+    System.out.println(area);
+    
+    double volume = sphereVolume(5);
+    System.out.println(volume);
+    
+    findSpace(5, "sphere");
+
+    }
+}
+
+import java.util.Scanner;
+public class Final03 {
+    
+    //A
+    public static boolean isPrime(int a)
+    {
+        for(int i = 2; i <= a; i++)
+        {
+            if (a % i == 0)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    public static void main (String [] args){
+        
+        boolean check = isPrime(8);
+        System.out.println(check);
+        
+    }
+}
+
+
+import java.util.Scanner;
+public class Final04 {
+    
+    public static boolean isPerfect(int a)
+    {
+        int sum = 0;
+        for (int i = 1; i < a; i++)
+        {   
+            if (a % i == 0)
+            {
+                sum = sum + i;
+            }
+        }
+        if (sum == a)
+        {
+            return true;
+        }
+        else 
+        {
+            return false;
+        }
+    }
+    
+    public static void main (String [] args){
+        
+        boolean check = isPerfect(6);
+        System.out.println(check);
+        
+    }
+}
+
+import java.util.Scanner;
+public class Final05 {
+   
+    public static double calcTax(double a, double b)
+    {
+        if(a < 18)
+        {
+        return 0.0;
+        }
+        else if(b <= 10000)
+        {
+        return 0.0;
+        }
+        else if(b >= 10000 && b <= 20000)
+        {
+        return b * 0.07;
+        }
+        else 
+        {
+        return b * 0.14;
+        }
+    }
+    
+    public static void main (String [] args){
+        
+        double t = calcTax(20, 18000);
+        System.out.println(t);
+
+    }
+}
+
+public class FinalString01{ 
+    public static void main(String[] args) {
+        String course = "";
+        int i = 2, j = 0, k = 18;
+        course = "-->cse";
+        while (i< 5) {  
+            k--;
+            j = k;
+            while (j > 12 ) {
+                if (j % 2 != 0) {
+                    course += "<--";
+                    course =  course + i + (j / 2);
+                } else {
+                    course += "-->";
+                    course =  course + (i % 2) + j;
+                }
+                System.out.println(course);
+                if (j == 14) {
+                    course = "-->cse";
+                }     
+                --j;
+            }
+            i++;
+        }
+    }
+}
+
+import java.util.Scanner;
+public class FinalString02{ 
+    
+    public static void modifyStrings(String S, String S1, String S2)
+    {
+    String result = "";
+    int i = 0;
+    int S1Length = S1.length();
+    while(i <= S.length() - S1Length)
+    {
+        boolean match = true;
+        for (int j = 0; j < S1Length; j++)
+        {
+            if (S.charAt(i + j) != S1.charAt(j))
+            {
+                match = false;
+                break;
+            }
+        }
+        if (match)
+        {
+        result = result + S2;
+        i = i + S1Length;
+        }
+        else 
+        {
+        result = result + S.charAt(i);
+        i++;
+        }
+    }
+        while (i < S.length()) {
+            result += S.charAt(i);
+            i++;
+        }
+
+        System.out.println(result);
+    
+    
+    }
+    
+    public static void main(String[] args) {
+    Scanner sc = new Scanner (System.in);
+   
+        System.out.print("Enter string S: ");
+        String S = sc.nextLine();
+        
+        System.out.print("Enter string S1: ");
+        String S1 = sc.nextLine();
+        
+        System.out.print("Enter string S2: ");
+        String S2 = sc.nextLine();
+        
+        modifyStrings(S, S1, S2);
+
+  }
+}
+
+//public class Main {
+//    public static void modifyStrings(String S, String S1, String S2) {
+//        String modifiedString = S.replace(S1, S2);
+//        System.out.println(modifiedString);
+//    }
+//
+//    public static void main(String[] args) {
+//        
+//        String S = "abababa";
+//        String S1 = "aba";
+//        String S2 = "a";
+//        modifyStrings(S, S1, S2);  
+//    }
+//}
+
+public class final04{
+    public static void main(String [] args){
+        boolean check = isHappyNumber(88);
+        System.out.println(check);
+    }
+
+    public static boolean isHappyNumber(int num){
+        
+        while (num != 1 && num != 4){
+            int sum =0;
+            while (num>0){
+                int digit = num%10;
+                sum += digit * digit;
+                num /= 10;
+            }
+            num =sum;
+
+        }
+        return num==1;
+    }
+}
+
+import java.util.Scanner;
+public class FinalString05{
+    public static void main(String [] args){
+        Scanner s1 = new Scanner(System.in);
+        System.out.println("Enter binary Number: ");
+        String binary = s1.next();
+        int ans = toDecimal(binary);
+        System.out.println(ans);
+        System.out.println(toHex(ans));
+        s1.close();
+    }
+    
+    public static int toDecimal(String str){
+        int decimal =0;
+        int size = str.length();
+        for (int i =0; i<size;i++){
+            int num =str.charAt(i)-'0';
+            decimal += num *(int)(Math.pow(2,(size-1-i)));
+        }
+        return decimal;      
+    }
+    public static String toHex(int ans){
+        String hex = "";
+        while(ans>0){
+            int rem = ans%16;
+            if(rem<10){
+                hex = rem + hex;
+            }
+            else{
+                hex = (char)(rem-10+'A') + hex;
+            }
+            ans = ans/16;
+        }
+        return hex;
+    }
+}
+
+public class task09 {
+    public static void main(String [] args){
+        char[] studentGrades = new char[]{'A', 'A', 'A', 'B', 'C', 'U', 'Z'};
+        int[] studentScores = new int[7];
+        getScores(studentGrades,studentScores);
+    }
+    public static void getScores(char[] ar1,int[]ar2){
+        for (int i =0; i< ar2.length;i++){
+            if(ar1[i]=='A'){
+                ar2[i]=100;
+            }
+            else if (ar1[i]=='B'){
+                ar2[i]=90;
+            }
+            else if (ar1[i]=='C'){
+                ar2[i]=70;
+            }
+            else {
+                ar2[i]=0;
+            }
+        }
+        for (int j =0; j<ar2.length;j++){
+            System.out.println(ar2[j]);
+        }
+
+    }
+}
+
+public class task11  {
+    public static void main(String [] args){
+        int ans = isVowel("The quick brown fox jumps over the lazy dog");
+        System.out.println(ans);
+        int ans2 = isConsonant("The quick brown fox jumps over the lazy dog");
+        System.out.println(ans2);
+        String [] arr1 ={"Bob", "Alice", "Max", "Marry", "Rosy"};
+        int sumVowel = vowelSum(arr1);
+        System.out.println("The total number of vowels in the array is: "+sumVowel);
+        int sumConsonant = consonantSum(arr1);
+        System.out.println("The total number of consonants in the array is: "+sumConsonant);
+    }
+    public static int isVowel(String s1){
+        int vowel = 0;
+        for (int i=0; i<s1.length();i++){
+            char ch = (char)(s1.charAt(i));
+            if (ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u'||ch=='A'||ch=='E'||ch=='I'||ch=='O'||ch=='U'){
+                vowel++;
+            }
+        }
+        return vowel;
+    }
+    public static int isConsonant(String s1){
+        int consonant = 0;
+        for (int j=0; j<s1.length();j++){
+            char ch1 = (char)(s1.charAt(j));
+            if ((ch1>=65 && ch1<=90)||(ch1>=97 && ch1<=122)){
+                if (ch1!='a'&&ch1!='e'&&ch1!='i'&&ch1!='o'&&ch1!='u'&&ch1!='A'&&ch1!='E'&&ch1!='I'&&ch1!='O'&&ch1!='U'){
+                    consonant++;
+                }
+            }  
+        }
+        return consonant;
+    }
+    public static int vowelSum(String [] arr){
+        int sum =0;
+        for (int p =0; p<arr.length; p++){
+            String x = arr[p];
+            int res = isVowel(x);
+            sum += res;
+        }
+        return sum;
+    }
+    public static int consonantSum(String [] arr){
+        int sum1 =0;
+        for (int q =0; q<arr.length; q++){
+            String y = arr[q];
+            int res1 = isConsonant(y);
+            sum1+= res1;
+        }
+        return sum1;
     }
 }
