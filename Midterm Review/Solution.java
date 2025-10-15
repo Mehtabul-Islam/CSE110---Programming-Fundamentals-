@@ -1,384 +1,345 @@
 import java.util.Scanner;
-public class Assignment07Task01 {
-    public static void main (String [] args) {
+// Final version commit
+public class problem1 {
+    public static void main(String [] args){
         Scanner sc = new Scanner (System.in);
-        
-        //(a)
-        
-        System.out.println("N = ");
-        int N = sc.nextInt();
-        int [] array = new int[N];
-        
-        for (int a = 0; a < array.length; a++)
-        {
-            System.out.println("Enter a number: ");
-            array [a] = sc.nextInt();
+        System.out.println("Enter total distance travelled:");
+        int distance = sc.nextInt();
+        System.out.println("Enter amount of fuel spent:");
+        double fuel = sc.nextDouble();
+        double consumption = distance / fuel;
+        System.out.printf("%.3f km/l%n", consumption);
+    }
+}
+
+import java.util.Scanner;
+public class problem2 {
+    public static void main(String [] args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter code number:");
+        int code = sc.nextInt();
+        System.out.println("Enter quantity: ");
+        int quantity = sc.nextInt();
+        String item = "";
+        double price = 0;
+        if(code == 1){
+            item = "Hot Dog";
+            price = 4.00;
         }
-        System.out.println("The elements of the array are: ");
-        
-        for (int a = 0; a < array.length; a++)
-        {
-            System.out.println(a + ": " + array[a]);
+        else if(code == 2){
+            item  = "X-Salad";
+            price = 4.50;
         }
-        
-        //(b)
-        
-        int [] array1 = new int [N+1];
-        System.out.println("Enter another number: ");
-        int num = sc.nextInt();
-        int last = array1.length - 1;
-        array1[last] = num;
-        
-        for(int a = 0; a < array.length; a++)
-        {
-            array1[a] = array[a];
+        else if(code == 3){
+            item = "X-Bacon";
+            price = 5.00;
         }
-        System.out.println("After resizing the array: ");
-        
-        for (int a = 0; a < array1.length; a++)
-        {
-            System.out.print(array1[a] + " ");
+        else if(code == 4){
+            item = "Toast";
+            price = 2.00;
+        }
+        else if(code == 5){
+            item ="Soda";
+            price = 1.50;
+        }
+        else{
+            System.out.println("Invalid input");
+        }
+        System.out.println("Item: "+ item);
+        System.out.println("Quantity: "+ quantity);
+        System.out.printf("Total: $ %.2f" , price * quantity );
+    }
+}
+
+import java.util.Scanner;
+public class problem3 {
+    public static void main(String [] args){
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the first abscissa:");
+        double aa = sc.nextDouble();
+        System.out.println("Enter the first ordinate");
+        double bb = sc.nextDouble();
+        System.out.println("Enter the second abscissa:");
+        double xx = sc.nextDouble();
+        System.out.println("Enter the second ordinate:");
+        double yy = sc.nextDouble();
+
+        double distance = Math.sqrt(Math.pow(xx-aa,2)+Math.pow(yy-bb,2));
+        double slope = (yy-bb)/(xx-aa);
+        System.out.printf("Distance :%.4f %n", distance);
+        System.out.printf("Slope :%.4f %n", slope);
+        if (slope > 0){
+            System.out.println("The slope is Positive");
+        }
+        else if(slope == 0){
+            System.out.println("The slope is Zero.");
+        }
+        else {
+            System.out.println("The slope is Negative.");
         }
     }
 }
 
-
 import java.util.Scanner;
-public class Assignment07Task02 {
-    public static void main (String [] args) {
-        Scanner sc = new Scanner (System.in);
-        
-        System.out.println("Enter array length: ");
-        int num = sc.nextInt();
-        int [] arr = new int [num];
-        
-        for(int a = 0; a < arr.length; a++){
-            System.out.print("Enter a number: ");
-            arr[a] = sc.nextInt();
-        }
-        System.out.println("Before removing duplicates: ");
-        
-        for (int a = 0; a < arr.length; a++)
-        {
-        System.out.print(arr[a] + " ");
-        }
-        
-        for (int a = 0; a < arr.length; a++) 
-        {
-            for (int b = a + 1; b < arr.length; b++)
-            {
-                if (arr[a] == arr[b] && arr[a] != 0) 
-                {
-                    arr[b] = 0;
-                }
-            }
-        }
-        System.out.println();
-        System.out.println("After replacing duplicates with 0: ");
-        
-        for(int a = 0; a < arr.length; a++)
-        {
-        System.out.print(arr[a] + " ");
-        }
-    }
-}
+public class problem4 {
+    public static void main(String [] args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter A:");
+        double a = sc.nextDouble();
+        System.out.println("Enter B:");
+        double b = sc.nextDouble();
+        System.out.println("Enter C:");
+        double c = sc.nextDouble();
 
+        double discri = Math.pow(b,2)-(4*a*c);
+        double root = Math.sqrt(discri);
+        double div = 2*a;
+        double ans1 = (-b + root) / div;
+        double ans2 = (-b - root) / div;
+        if (discri < 0 || div == 0 ){
+            System.out.println("Impossible to calculate.");
 
-import java.util.Scanner;
-public class Assignment07Task03 {
-    public static void main (String [] args) {
-        Scanner sc = new Scanner (System.in);
-        
-        System.out.println("Enter array length: ");
-        int num = sc.nextInt();
-        int [] arr = new int [num];
-        int [] arr1 = new int [num];
-        
-        for(int a = 0; a < arr.length; a++){
-            System.out.print("Enter a number: ");
-            arr[a] = sc.nextInt();
-        }
-        
-        //a
-        
-        System.out.println("Reversed using a new array: ");
-        
-        for (int a = 0; a < arr.length; a++)
-        {
-            arr1[a] = arr [arr.length - 1 - a];
-            System.out.print(arr1[a] + " ");
-        }
-        
-        //b
-        
-        System.out.println();
-        System.out.println("Reversed the original array: ");
-        int a = 0;
-        int b = arr.length - 1;
-        
-        while (a < b) {
-            
-            int temp = arr[a];
-            arr[a] = arr[b];
-            arr[b] = temp;
-            a++;
-            b--;
-        }
-        
-        for(int c = 0; c < arr.length; c++)
-        {
-            System.out.print(arr[c] + " " );
-        }
-        System.out.println();
-    }
-}
-
-
-import java.util.Scanner;
-public class Assignment07Task04 {
-    public static void main (String [] args) {
-        Scanner sc = new Scanner (System.in);
-        System.out.println("Enter array length: ");
-        int num = sc.nextInt();
-        int [] arr = new int [num];
-        
-        for(int a = 0; a < arr.length; a++)
-        {
-            System.out.print("Enter a number: ");
-            arr[a] = sc.nextInt();
-        }
-        System.out.println("Original array: ");
-        
-        for(int a = 0; a < arr.length; a++)
-        {
-            System.out.print(arr[a] + " ");
-        }
-        System.out.println();
-        System.out.println("After modifying: ");
-        
-        for (int a = 0; a < arr.length; a++)
-        {
-            if(arr[a] > 0)
-            {
-                arr[a] = 1;
-            }
-            else 
-            {
-                arr[a] = 0;
-            }
-            System.out.print(arr[a] + " ");
-        }
-    }
-}
-
-
-import java.util.Scanner;
-public class Assignment07Task05 {
-    public static void main (String [] args) {
-        Scanner sc = new Scanner (System.in);
-        System.out.println("N = ");
-        int N = sc.nextInt();
-        int [] arr = new int [N];
-        
-        for(int a = 0; a < arr.length; a++)
-        {
-            System.out.print("Enter a number: ");
-            arr[a] = sc.nextInt();
-        }
-        System.out.println("Enter a number: ");
-        int num = sc.nextInt();
-        
-        int index = -1;     
-        for (int a = 0; a < arr.length; a++) {
-            if (arr[a] == num) {
-                index = a; 
-                break; 
-            }
-        }
-
-        
-        if (index != -1) 
-        { 
-            System.out.println(arr[index] + " is at index " + index);
         } 
-        else 
-        {
-            System.out.println("Element not found");
+        else {
+            System.out.printf("Root#1 = %.5f %n" , ans1);
+            System.out.printf("Root#2 = %.5f %n" , ans2);
         }
-        
     }
 }
 
+import java.util.Scanner;
+public class problem5 {
+    public static void main(String [] args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("enter the first value :");
+        int first = sc.nextInt();
+        System.out.println("enter change :");
+        int change = sc.nextInt();
+        System.out.println("enter the last value :");
+        int last = sc.nextInt();
 
+        for (int i = first; i<=last; i+=change){
+            if (i+change>last){
+                System.out.println(i);
+            }
+            else {
+                System.out.print(i+ ", ");
+            }
+        }
+    }
+}
 
 import java.util.Scanner;
-public class Assignment07Task06 {
-    public static void main (String [] args) {
-        Scanner sc = new Scanner (System.in);
-        System.out.println("Enter the length of the array: ");
-        int N = sc.nextInt();
-        double [] arr = new double [N];
+public class problem6 {
+    public static void main(String [] args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter integer n:");
+
+        int n = sc.nextInt();
+        double sum = 0.0;
+        double y = 1.0;
+        for (int i = 1; i<=n ; i++){
+            if (i%4==0){
+                y = 1.0/-i;
+            }
+            else {
+                y = 1.0/i;
+            }
+            sum += y;
+        }
+        System.out.printf("%.4f%n",sum);
+    }
+}
+
+import java.util.Scanner;
+public class problem7 {
+    public static void main(String [] args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter integer N:");
+
+        int n = sc.nextInt();
+        int sum=0;
+        for (int i = 1; i<=n ; i++){
+            if (i%2==0){
+                sum-= 2*i+1;
+
+            }
+            else {
+                sum += 2*i+1;
+            }
+        }
+        System.out.println(sum);
+    }
+}
+
+import java.util.Scanner;
+public class problem8 {
+    public static void main(String [] args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter integer N:");
+
+        int n = sc.nextInt();
+        System.out.println("Collatz sequence: ");
+        System.out.print(n+", ");
+        while (n !=1 ){
+        
+            if (n%2==0){
+                n = n/2;
                 
-        for(int a = 0; a < arr.length; a++)
-        {
-            System.out.print("Enter a number: ");
-            arr[a] = sc.nextDouble();
+            }
+            else if(n%2 != 0){
+                n = 3*n+1;
+                
+            }
+            
+            if (n==1){
+                System.out.println(n);
+            }  
+            else {
+                System.out.print(n+", ");
+            }
         }
-        
-        //(a)
-        
-        double maximum = arr[0];
-        int index = 0;
-        for (int a = 0; a < arr.length; a++)
-        {
-            if(arr[a] > maximum)
-            {
-        maximum = arr[a];
-        index = a;
-            }
-            }
-        System.out.println("Maximum element " + maximum + " found at index " + index);
-        
-        //(b)
-        
-        double minimum = arr[0];
-        int index1 = 0;
-        for (int a = 0; a < arr.length; a++)
-        {
-            if(arr[a] < minimum)
-            {
-        minimum = arr[a];
-        index1 = a;
-            }
-            }
-        System.out.println("Minimum element " + minimum + " found at index " + index1);
-        
-        //(c)
-        
-        double sum = 0;
-        int index2 = 0;
-        for (int a = 0; a < arr.length; a++)
-        { 
-        sum = sum + arr[a];
-        index2 = a;
-            }
-           
-        System.out.println("Summation: " + sum);
-        
-        //(d)
-        
-        double avg = sum/arr.length;
-        System.out.printf("Average: %.2f%n", avg);
-        
     }
 }
 
-
 import java.util.Scanner;
-public class Assignment07Task07 {
-    public static void main (String [] args) {
-        Scanner sc = new Scanner (System.in);
-        System.out.println("N = ");
-        int N = sc.nextInt();
-        int [] arr = new int [N];
-        
-        for(int a = 0; a < arr.length; a++) 
-        {
-            System.out.print("Enter a number: ");
-            arr[a] = sc.nextInt();
+public class problem9 {
+    public static void main(String [] args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter an integer number: ");
+        int num = sc.nextInt();
+        int temp = num;
+        int sum = 0;
+        int count=0;
+        while (num >  0){
+            num = num/10;
+            count++;
         }
-        System.out.println("Input array: ");
-        
-        for(int a = 0; a < arr.length; a++)
-        {
-            System.out.print(arr[a] + " ");
+        System.out.println(count);
+        while (count != 0 ){
+            int div = (int)Math.pow(10,count-1);
+            num = temp/div;
+            sum +=  num;
+            temp = temp % div;
+            count--;
         }
-        int count = 0;
+        System.out.println("The sum is  "+ sum);
         
-        for(int a = 0; a < arr.length; a++)
-        {
-            for(int b = a + 1; b < arr.length; b++)
-            {
-                if(arr[a] == arr[b])
-                {
-                    arr[b] = 0;
-                }
-            }
+
+        if (sum % 2 == 0){
+            System.out.println("The sum is even. ");
         }
-        
-        for(int a = 0; a < arr.length; a++)
-        {
-            if(arr[a] != 0)
-            {
-                count = count + 1;
-            }
+        else if (sum %2 != 0 ){
+            System.out.println("The sum is odd");
         }
-        System.out.println();
-        System.out.println("New array: ");
-        
-        int [] arr2 = new int[count];
-        int l = 0;
-        
-        for(int a = 0; a < arr.length; a++)
-        {
-            if(arr[a] != 0)
-            {
-                arr2[l] = arr[a];
-                l++;
-            }
-        }
-        
-        for(int c = 0; c < count; c++)
-        {
-            System.out.print(arr2[c] + " ");
-        }
-        System.out.println();
     }
 }
 
+import java.util.Scanner;
+public class problem10{
+  public static void main(String [] args){
+    Scanner sc = new Scanner(System.in);
+    System.out.println("Enter a binary number.");
+    int binary = sc.nextInt();
+    
+    int decimal = 0;
+    int power = 0;
+    while(binary!= 0){
+      int lastDigit = (int)(binary%10);
+      decimal = decimal + lastDigit * (int)Math.pow(2,power);
+      power++;
+      binary = binary /10;
+    }
+    System.out.println(decimal);
+  }
+}
 
 import java.util.Scanner;
-public class Assignment07Task08 {
-    public static void main (String [] args) {
-        Scanner sc = new Scanner (System.in);
-        System.out.println("Please enter the length of array 1: ");
-        int num1 = sc.nextInt();
-        int [] arr1 = new int [num1];
-        
-        for(int a = 0; a < arr1.length; a++)
-        {
-            System.out.print("Please enter the elements of the arr1 ");
-            arr1[a] = sc.nextInt();
+public class problem11{
+  public static void main(String [] args){
+    Scanner sc = new Scanner(System.in);
+    System.out.println("How many inputs do you want to provide? ");
+    int input = sc.nextInt();
+    System.out.println("Enter the numbers: ");
+    int even =0;
+    int sum = 0;
+    int average = 0;
+    int max = 0;
+    int min = 0;
+    for ( int i = 1; i<= input ; i++){
+      int numbers = sc.nextInt();
+      
+      if (numbers %2 == 0 && numbers > 0){
+        even++;
+        if (even == 1){
+         max = numbers;
+         min = numbers;
         }
-        System.out.println("Please enter the length of array 2: ");
-        int num2 = sc.nextInt();
-        int [] arr2 = new int [num2];
-        
-        for(int a = 0; a < arr2.length; a++)
-        {
-            System.out.print("Please enter the elements of the arr2 ");
-            arr2[a] = sc.nextInt();
+        else{
+          if (numbers > max){
+            max = numbers;
+          }
+          if (numbers< min){
+            min = numbers;
+          }
         }
-        int count = 0;
-        
-        for(int a=0; a < arr2.length; a++)
-        {
-            for(int b = 0; b < arr1.length; b++)
-            {
-                if(arr2[a] == arr1[b])
-                {
-                    count=count+1;
-                }
-            }
-        }
-        if(count == num2)
-        {
-            System.out.print("Array 2 is a subset of Array 1.");
-        }
-        else
-        {
-            System.out.print("Array 2 is not a subset of Array 1.");
-        }
-        System.out.println();
+        sum += numbers;
+        average = sum / even;
+      }
+      if (even ==0){
+        average = 0;
+      }
     }
+    System.out.println("Max: " +max);
+    System.out.println("Min: "+min);
+    System.out.println(average);
+  }
+}
+
+import java.util.Scanner;
+public class problem12{
+  public static void main(String [] args){
+    Scanner sc = new Scanner(System.in);
+    System.out.println("Enter the numbers: ");
+    int even =0;
+    int sum = 0;
+    int average = 0;
+    int max = 0;
+    int min = 0;
+    while (true){
+      
+      int numbers = sc.nextInt();
+      if (numbers == 0){
+        break;
+      }
+      else {
+        if (numbers %2 == 0 && numbers > 0){
+        even++;
+        if (even == 1){
+         max = numbers;
+         min = numbers;
+        }
+        else{
+          if (numbers > max){
+            max = numbers;
+          }
+          if (numbers< min){
+            min = numbers;
+          }
+        }
+        sum += numbers;
+        average = sum / even;
+        
+        }
+      
+        if (even ==0){
+          average = 0;
+        }
+      }
+    }
+    System.out.println("Max: " +max);
+    System.out.println("Min: "+min);
+    System.out.println(average);
+  }
 }
